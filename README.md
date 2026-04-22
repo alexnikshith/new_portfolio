@@ -1,6 +1,10 @@
 # 🚀 Premium Developer Portfolio | Nikshith Gurram
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://nick-portfolio-jade.vercel.app/)
+
 A high-fidelity, interactive, and fully responsive developer portfolio built with a state-of-the-art "Glassmorphism" aesthetic. This project showcases a blend of clean UI/UX and advanced frontend capabilities.
+
+**Live Link:** [https://nick-portfolio-jade.vercel.app/](https://nick-portfolio-jade.vercel.app/)
 
 ## ✨ High-End Features
 
