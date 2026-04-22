@@ -1,16 +1,59 @@
-# React + Vite
+# 🚀 Premium Developer Portfolio | Nikshith Gurram
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-fidelity, interactive, and fully responsive developer portfolio built with a state-of-the-art "Glassmorphism" aesthetic. This project showcases a blend of clean UI/UX and advanced frontend capabilities.
 
-Currently, two official plugins are available:
+## ✨ High-End Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 🎨 Visual & Interactive Excellence
+- **Premium Violet Theme**: A color-coordinated dark theme with mesh gradients and a refined "Glassmorphism" look.
+- **Dynamic Cursor Glow**: A custom interactive "halo" effect that follows the user's mouse for a premium feel.
+- **Floating Particle Background**: A subtle, animated cinematic background that adds visual depth.
+- **Custom Premium Scrollbar**: A theme-matched scrollbar for a fully branded experience across all browsers.
 
-## React Compiler
+### 🛠️ Advanced Functionality
+- **Project Filtering**: Real-time sorting of 7+ projects across categories like **Machine Learning, Web, Blockchain, and IoT**.
+- **Interactive Project Cards**: Featuring hover scales, dynamic tags, and glass effects.
+- **Auto-Sync Experience**: Integrated timeline showcasing **SDE Internships** at Bluestock Fintech and leadership roles in **NSS**.
+- **Smooth Navigation**: Framer Motion powered transitions and section-based smooth scrolling.
+- **Functional Contact Form**: Integrated with **Formspree** for direct-to-email communication with custom success/error states.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 💻 Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React.js](https://reactjs.org/) (Vite)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Project Structure
+
+- `src/data.js`: Central source of truth for all projects, experience, and certificates.
+- `src/components/`: Modular UI components (Hero, Projects, Experience, etc.).
+- `public/certificates/`: Secure storage for all professional certifications and resumes.
+
+## 🚀 Installation & Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/alexnikshith/new_portfolio.git
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+## 📬 Contact
+
+Let's connect!
+- **Email**: [nikshithgurram2006@gmail.com](mailto:nikshithgurram2006@gmail.com)
+- **GitHub**: [@alexnikshith](https://github.com/alexnikshith)
+- **LinkedIn**: [Nikshith Gurram](https://www.linkedin.com/in/nikshith-gurram/)
+
+---
+*Created with ❤️ by Nikshith Gurram*
