@@ -9,7 +9,8 @@ import {
   Globe, 
   Award,
   BookOpen,
-  Briefcase
+  Briefcase,
+  BarChart3
 } from 'lucide-react';
 import { GitHub as Github, LinkedIn as Linkedin } from './components/Icons';
 
@@ -47,8 +48,13 @@ export const skills = [
   },
   { 
     category: "Databases & Tools", 
-    items: ["MySQL", "MongoDB", "Git", "Docker", "VS Code", "Tableau"],
+    items: ["MySQL", "MongoDB", "Git", "Docker", "VS Code"],
     icon: Database
+  },
+  { 
+    category: "Data & Business Analytics", 
+    items: ["Power BI", "Tableau", "Excel", "Data Visualization", "SQL"],
+    icon: BarChart3
   }
 ];
 
