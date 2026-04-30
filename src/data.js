@@ -38,7 +38,7 @@ export const skills = [
   },
   { 
     category: "Web Development", 
-    items: ["React", "Tailwind CSS", "Node.js", "Flask", "HTML5", "CSS3"],
+    items: ["React", "Tailwind CSS", "Node.js", "Flask", "FastAPI", "HTML5"],
     icon: Globe
   },
   { 
@@ -53,12 +53,20 @@ export const skills = [
   },
   { 
     category: "Data & Business Analytics", 
-    items: ["Power BI", "Tableau", "Excel", "Data Visualization", "SQL"],
+    items: ["Power BI", "Tableau", "Pandas", "Data Visualization", "SQL"],
     icon: BarChart3
   }
 ];
 
 export const projects = [
+  {
+    title: "EduAnalytics: Student Marks Analyser",
+    description: "A professional SaaS dashboard for educators to transform raw student data into actionable insights using interactive charts and AI-powered feedback.",
+    tags: ["React", "Python", "FastAPI", "Pandas", "AI"],
+    github: "https://github.com/alexnikshith/student-exam-performance-analytics",
+    demo: "https://student-exam-performance-analytics.vercel.app",
+    category: "Data Analysis"
+  },
   {
     title: "Book-Your-Service-Online-",
     description: "A comprehensive platform for booking professional services online with real-time scheduling and secure payments.",

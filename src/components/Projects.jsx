@@ -6,7 +6,7 @@ import { projects } from '../data';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = React.useState('All');
-  const categories = ['All', 'Web', 'ML', 'Blockchain', 'Cybersecurity', 'IoT'];
+  const categories = ['All', 'Web', 'ML', 'Data Analysis', 'Blockchain', 'Cybersecurity', 'IoT'];
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
