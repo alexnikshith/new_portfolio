@@ -208,6 +208,6 @@ export const certifications = [
     issuer: "Coursera",
     date: "2025",
     icon: Award,
-    link: "#"
+    link: "/certificates/DA_Coursera.pdf"
   }
 ];
