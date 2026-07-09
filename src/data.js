@@ -197,13 +197,6 @@ export const certifications = [
     link: "/certificates/Machine%20Learning%20Training%20-%20Certificate%20of%20Completion.pdf"
   },
   {
-    title: "Adobe Hackathon Recognition",
-    issuer: "Adobe",
-    date: "August 2025",
-    icon: Award,
-    link: "/certificates/adobe_hackathon.pdf"
-  },
-  {
     title: "Microsoft Certified Data Analysis",
     issuer: "Coursera",
     date: "April 2026",
