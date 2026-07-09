@@ -1,12 +1,12 @@
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Code2, 
-  Cpu, 
-  Shield, 
-  Database, 
-  Globe, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Code2,
+  Cpu,
+  Shield,
+  Database,
+  Globe,
   Award,
   BookOpen,
   Briefcase,
@@ -26,33 +26,33 @@ export const personalInfo = {
   location: "Hyderabad, India",
   github: "https://github.com/alexnikshith",
   linkedin: "https://www.linkedin.com/in/nikshith-gurram-04027b1b7/",
-  resumeUrl: "/resume.pdf", 
-  profilePic: profilePic, 
+  resumeUrl: "/resume.pdf",
+  profilePic: profilePic,
 };
 
 export const skills = [
-  { 
-    category: "Languages", 
+  {
+    category: "Languages",
     items: ["Python", "Java", "C", "Go", "JavaScript", "SQL"],
     icon: Code2
   },
-  { 
-    category: "Web Development", 
+  {
+    category: "Web Development",
     items: ["React", "Tailwind CSS", "Node.js", "Flask", "FastAPI", "HTML5", "RESTful APIs"],
     icon: Globe
   },
-  { 
-    category: "Specializations", 
+  {
+    category: "Specializations",
     items: ["Machine Learning", "Cloud Computing (Edge/Fog)", "Blockchain", "Cybersecurity"],
     icon: Cpu
   },
-  { 
-    category: "Databases & Tools", 
+  {
+    category: "Databases & Tools",
     items: ["MySQL", "MongoDB", "Git", "Docker", "VS Code", "Kubernetes", "GitHub"],
     icon: Database
   },
-  { 
-    category: "Data & Business Analytics", 
+  {
+    category: "Data & Business Analytics",
     items: ["Power BI", "Tableau", "Pandas", "Data Visualization", "SQL", "Excel", "Statistics"],
     icon: BarChart3
   }
@@ -206,7 +206,7 @@ export const certifications = [
   {
     title: "Microsoft Certified Data Analysis",
     issuer: "Coursera",
-    date: "2025",
+    date: "April 2026",
     icon: Award,
     link: "/certificates/DA_Coursera.pdf"
   }
