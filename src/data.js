@@ -33,12 +33,12 @@ export const personalInfo = {
 export const skills = [
   { 
     category: "Languages", 
-    items: ["Python", "Java", "C", "Go", "JavaScript"],
+    items: ["Python", "Java", "C", "Go", "JavaScript", "SQL"],
     icon: Code2
   },
   { 
     category: "Web Development", 
-    items: ["React", "Tailwind CSS", "Node.js", "Flask", "FastAPI", "HTML5"],
+    items: ["React", "Tailwind CSS", "Node.js", "Flask", "FastAPI", "HTML5", "RESTful APIs"],
     icon: Globe
   },
   { 
@@ -48,12 +48,12 @@ export const skills = [
   },
   { 
     category: "Databases & Tools", 
-    items: ["MySQL", "MongoDB", "Git", "Docker", "VS Code"],
+    items: ["MySQL", "MongoDB", "Git", "Docker", "VS Code", "Kubernetes", "GitHub"],
     icon: Database
   },
   { 
     category: "Data & Business Analytics", 
-    items: ["Power BI", "Tableau", "Pandas", "Data Visualization", "SQL"],
+    items: ["Power BI", "Tableau", "Pandas", "Data Visualization", "SQL", "Excel", "Statistics"],
     icon: BarChart3
   }
 ];
@@ -202,5 +202,12 @@ export const certifications = [
     date: "August 2025",
     icon: Award,
     link: "/certificates/adobe_hackathon.pdf"
+  },
+  {
+    title: "Microsoft Certified Data Analysis",
+    issuer: "Coursera",
+    date: "2025",
+    icon: Award,
+    link: "#"
   }
 ];

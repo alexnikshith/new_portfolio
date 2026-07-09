@@ -6,11 +6,19 @@ import { projects } from '../data';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = React.useState('All');
+  const [visibleCount, setVisibleCount] = React.useState(6);
   const categories = ['All', 'Web', 'ML', 'Data Analysis', 'Blockchain', 'Cybersecurity', 'IoT'];
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
     : projects.filter(p => p.category === activeCategory);
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    setVisibleCount(6);
+  };
 
   return (
     <section id="projects" className="section-padding">
@@ -26,7 +34,7 @@ const Projects = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => handleCategoryChange(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${
                 activeCategory === cat 
                   ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/20' 
@@ -43,7 +51,7 @@ const Projects = () => {
         layout
         className="grid md:grid-cols-2 gap-8"
       >
-        {filteredProjects.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <motion.div
             layout
             key={project.title}
@@ -97,6 +105,17 @@ const Projects = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      {visibleCount < filteredProjects.length && (
+        <div className="flex justify-center mt-12">
+          <button 
+            onClick={() => setVisibleCount(prev => prev + 6)}
+            className="px-8 py-3 bg-primary-500 text-white rounded-xl font-bold shadow-lg shadow-primary-500/20 hover:bg-primary-400 transition-colors"
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </section>
   );
 };
