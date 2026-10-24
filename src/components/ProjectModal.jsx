@@ -28,7 +28,7 @@ const ProjectModal = ({ project, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-cyber-950/85 backdrop-blur-xl cursor-pointer"
+          className="fixed inset-0 bg-black/60 backdrop-blur-md cursor-pointer"
         />
 
         {/* Modal Window */}
@@ -37,43 +37,43 @@ const ProjectModal = ({ project, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-2xl bg-cyber-900 border border-primary-500/30 rounded-2xl shadow-2xl shadow-black/80 z-10 overflow-hidden my-auto"
+          className="relative w-full max-w-2xl bg-white border-2 border-zinc-900 rounded-2xl shadow-2xl z-10 overflow-hidden my-auto"
         >
-          {/* Top Banner / Cyber Accents */}
-          <div className="relative p-6 sm:p-8 bg-gradient-to-r from-primary-950 via-cyber-900 to-indigo-950 border-b border-slate-800">
+          {/* Top Banner */}
+          <div className="relative p-6 sm:p-8 bg-gradient-to-r from-yellow-100/90 via-yellow-50 to-white border-b border-zinc-200">
             <div className="flex items-center justify-between gap-4 mb-3">
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-primary-500/20 text-primary-300 border border-primary-500/30">
+                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white text-zinc-900 border border-zinc-300">
                   {project.category}
                 </span>
                 {project.featured && (
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-medium bg-amber-500/15 text-amber-300 border border-amber-500/30 flex items-center gap-1">
-                    <Sparkles size={11} /> Featured
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-extrabold bg-yellow-400 text-black border border-yellow-500 flex items-center gap-1 shadow-sm">
+                    <Sparkles size={11} className="text-black" /> Featured
                   </span>
                 )}
               </div>
 
               <button
                 onClick={onClose}
-                className="p-2 rounded-xl bg-cyber-950/80 hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer border border-slate-700/60"
+                className="p-2 rounded-xl bg-white hover:bg-zinc-100 text-zinc-700 hover:text-black transition-colors cursor-pointer border border-zinc-300"
                 aria-label="Close modal"
               >
                 <X size={18} />
               </button>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 mb-2">
               {project.title}
             </h3>
             {project.subtitle && (
-              <p className="text-sm font-mono text-cyan-300">
+              <p className="text-sm font-mono text-yellow-700 font-bold">
                 {project.subtitle}
               </p>
             )}
 
             {project.period && (
-              <div className="flex items-center gap-2 mt-3 text-xs text-slate-400 font-mono">
-                <Calendar size={13} className="text-primary-400" />
+              <div className="flex items-center gap-2 mt-3 text-xs text-zinc-600 font-mono font-medium">
+                <Calendar size={13} className="text-yellow-600" />
                 <span>Timeline: {project.period}</span>
               </div>
             )}
@@ -83,10 +83,11 @@ const ProjectModal = ({ project, onClose }) => {
           <div className="p-6 sm:p-8 space-y-6 max-h-[65vh] overflow-y-auto">
             {/* Description */}
             <div>
-              <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">
-                // SYSTEM OVERVIEW
+              <h4 className="text-xs font-mono text-zinc-950 font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                <span className="w-2 h-2 bg-yellow-400 rounded-sm" />
+                System Overview
               </h4>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-zinc-700 text-sm sm:text-base leading-relaxed font-normal">
                 {project.description}
               </p>
             </div>
@@ -94,18 +95,18 @@ const ProjectModal = ({ project, onClose }) => {
             {/* Key Highlights / Achievements */}
             {project.highlights && project.highlights.length > 0 && (
               <div>
-                <h4 className="text-xs font-mono text-primary-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                  <Layers size={14} />
+                <h4 className="text-xs font-mono text-zinc-950 font-bold uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                  <Layers size={14} className="text-yellow-500" />
                   Architectural Highlights & Impact
                 </h4>
                 <div className="space-y-2.5">
                   {project.highlights.map((highlight, idx) => (
                     <div
                       key={idx}
-                      className="p-3 rounded-xl bg-cyber-950/70 border border-slate-800/80 flex items-start gap-3"
+                      className="p-3 rounded-xl bg-yellow-50/70 border border-yellow-200/90 flex items-start gap-3"
                     >
-                      <CheckCircle2 size={16} className="text-cyan-400 shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                      <CheckCircle2 size={16} className="text-yellow-600 shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-zinc-900 leading-relaxed font-medium">
                         {highlight}
                       </span>
                     </div>
@@ -116,11 +117,11 @@ const ProjectModal = ({ project, onClose }) => {
 
             {/* Metrics Capsule */}
             {project.metrics && (
-              <div className="p-4 rounded-xl bg-gradient-to-r from-primary-950/80 to-cyber-900 border border-primary-500/25">
-                <span className="text-xs font-mono text-primary-300 uppercase block mb-1">
+              <div className="p-4 rounded-xl bg-zinc-950 text-white border border-zinc-800">
+                <span className="text-xs font-mono text-yellow-400 uppercase font-bold block mb-1">
                   Key Production Metrics
                 </span>
-                <span className="text-sm font-bold text-white">
+                <span className="text-sm font-bold text-white font-mono">
                   {project.metrics}
                 </span>
               </div>
@@ -128,14 +129,14 @@ const ProjectModal = ({ project, onClose }) => {
 
             {/* Tech Stack Chips */}
             <div>
-              <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">
+              <h4 className="text-xs font-mono text-zinc-950 font-bold uppercase tracking-widest mb-3">
                 Technologies & Tools Utilized
               </h4>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 rounded-lg bg-cyber-950 border border-slate-700 text-xs font-mono text-slate-200"
+                    className="px-3 py-1.5 rounded-lg bg-zinc-100 border border-zinc-200 text-xs font-mono text-zinc-900 font-medium"
                   >
                     {tag}
                   </span>
@@ -145,13 +146,13 @@ const ProjectModal = ({ project, onClose }) => {
           </div>
 
           {/* Modal Footer Actions */}
-          <div className="p-6 bg-cyber-950 border-t border-slate-800 flex flex-wrap items-center justify-end gap-3">
+          <div className="p-6 bg-zinc-50 border-t border-zinc-200 flex flex-wrap items-center justify-end gap-3">
             {project.demo && project.demo !== '#' && (
               <a
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary py-2.5 px-5 text-xs"
+                className="btn-yellow py-2.5 px-5 text-xs font-bold"
               >
                 <span>Live Interactive Demo</span>
                 <ExternalLink size={14} />
@@ -161,7 +162,7 @@ const ProjectModal = ({ project, onClose }) => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary py-2.5 px-5 text-xs gap-2"
+              className="btn-primary py-2.5 px-5 text-xs gap-2"
             >
               <Github size={15} />
               <span>Inspect Source Repository</span>

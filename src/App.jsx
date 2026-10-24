@@ -13,22 +13,22 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-cyber-950 text-slate-100 font-sans selection:bg-primary-500/30 selection:text-primary-200 relative overflow-x-hidden">
-      {/* Dynamic Canvas Cyber Constellation */}
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-yellow-300 selection:text-black relative overflow-x-hidden">
+      {/* Dynamic Canvas Particles */}
       <BackgroundParticles />
 
-      {/* Spring-Damped Dual-Tone Spotlight */}
+      {/* Spring-Damped Yellow Spotlight */}
       <CursorGlow />
 
-      {/* Floating Cyber Glass Navbar */}
+      {/* Floating White Glass Navbar */}
       <Navbar />
 
       <main className="relative z-10">
         <Hero />
         <div className="relative">
-          {/* Subtle Cyber Glow Bleeds */}
-          <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-600/5 blur-[160px] -z-10 rounded-full pointer-events-none" />
-          <div className="absolute top-2/3 left-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[160px] -z-10 rounded-full pointer-events-none" />
+          {/* Subtle Ambient Yellow Bleeds */}
+          <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-yellow-400/10 blur-[160px] -z-10 rounded-full pointer-events-none" />
+          <div className="absolute top-2/3 left-0 w-[500px] h-[500px] bg-amber-300/10 blur-[160px] -z-10 rounded-full pointer-events-none" />
 
           <About />
           <Skills />

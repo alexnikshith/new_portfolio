@@ -25,7 +25,7 @@ export const personalInfo = {
   name: "Nikshith Gurram",
   title: "Software Engineer & AI/ML Developer",
   role: "Full-Stack Developer • Applied AI Enthusiast",
-  bio: "Computer Science undergraduate at Amrita Vishwa Vidyapeetham with hands-on experience in full-stack development, applied AI systems, and cloud-fog architectures. Proficient in Python, React, FastAPI, Docker, and Kubernetes, with a passion for building scalable, secure, and high-performance software solutions.",
+  bio: "Computer Science undergraduate at Amrita Vishwa Vidyapeetham with hands-on experience building AI-powered platforms, scalable full-stack applications, and cloud-fog architectures. Proficient in Python, React, Next.js, FastAPI, Docker, and Kubernetes, with a passion for building scalable, secure, and high-performance software solutions.",
   email: "nikshithgurram2006@gmail.com",
   phone: "+91 75697 78915",
   location: "Hyderabad, India",
@@ -35,7 +35,7 @@ export const personalInfo = {
   profilePic: profilePic,
   status: "Open to Software Engineering & AI Roles",
   stats: [
-    { label: "Software Solutions Deployed", value: "10+", icon: Sparkles },
+    { label: "Production Platforms Deployed", value: "12+", icon: Sparkles },
     { label: "Financial Records Processed", value: "10K+", icon: BarChart3 },
     { label: "ML Model Prediction Accuracy", value: "90%+", icon: Activity },
     { label: "Docker Multi-Service Test Pass", value: "99.6%", icon: Shield }
@@ -46,48 +46,86 @@ export const skills = [
   {
     category: "Programming Languages",
     icon: Code2,
-    color: "from-violet-500 to-indigo-500",
+    color: "from-yellow-400 to-amber-500",
     description: "Core languages for systems, algorithmic problem solving & backend services",
-    items: ["Python", "Go", "Java", "C", "Solidity", "SQL", "JavaScript"]
+    items: ["Python", "Go", "Java", "C", "TypeScript", "JavaScript", "Solidity", "SQL"]
   },
   {
     category: "AI & Machine Learning",
     icon: Cpu,
-    color: "from-cyan-500 to-blue-500",
-    description: "Predictive modeling, feature engineering & intelligent automation",
+    color: "from-yellow-500 to-orange-500",
+    description: "Predictive modeling, resume intelligence & intelligent automation",
     items: ["Scikit-learn", "Supervised Learning", "Regression & Classification", "Model Deployment", "Feature Engineering", "Time Series Analysis"]
   },
   {
     category: "Web & Frameworks",
     icon: Globe,
-    color: "from-emerald-500 to-teal-500",
+    color: "from-amber-400 to-yellow-500",
     description: "Modern reactive frontends, RESTful APIs & high-throughput backends",
-    items: ["React.js", "FastAPI", "Node.js", "Flask", "Tailwind CSS", "RESTful APIs", "HTML5/CSS3"]
+    items: ["Next.js 14", "React.js", "FastAPI", "Node.js", "Express", "Flask", "Tailwind CSS", "RESTful APIs"]
   },
   {
     category: "DevOps & Cloud Systems",
     icon: Server,
-    color: "from-fuchsia-500 to-pink-500",
+    color: "from-zinc-800 to-black",
     description: "Containerization, cloud infrastructure & continuous integration",
     items: ["Docker", "Kubernetes", "AWS", "GitHub Actions", "CI/CD", "Linux", "VS Code"]
   },
   {
     category: "Data & Business Analytics",
     icon: BarChart3,
-    color: "from-amber-500 to-orange-500",
+    color: "from-yellow-400 to-amber-600",
     description: "Exploratory data analysis, interactive reporting & business intelligence",
     items: ["Pandas", "NumPy", "Power BI", "Matplotlib", "Data Cleaning & EDA", "Tableau", "Statistical Analysis"]
   },
   {
     category: "Core Computer Science",
     icon: Layers,
-    color: "from-purple-500 to-cyan-500",
+    color: "from-black to-zinc-800",
     description: "Foundational computer science principles & architectural rigor",
     items: ["Data Structures & Algorithms", "Object-Oriented Programming (OOP)", "DBMS", "Computer Networks", "Operating Systems", "Agile (Scrum)"]
   }
 ];
 
 export const projects = [
+  {
+    id: "talentscope",
+    title: "TalentScope AI: Resume Intelligence Platform",
+    shortTitle: "TalentScope AI SaaS",
+    subtitle: "Next.js 14 & FastAPI Multi-Dimensional ATS Intelligence",
+    period: "2025 - 2026",
+    description: "A state-of-the-art AI-powered Resume Intelligence SaaS platform featuring automated ATS scoring, deep semantic job matching, bullet-point optimization, and dynamic learning roadmap generators for modern job seekers.",
+    highlights: [
+      "Built full-stack Next.js 14 & FastAPI SaaS platform delivering instant recruiter-level multi-dimensional resume feedback",
+      "Engineered automated ATS scoring engine out of 100 with semantic job matching and interactive bullet-point optimizer",
+      "Integrated candidate job tracking CRM, drag-and-drop resume parser supporting PDFs, and dynamic learning roadmaps"
+    ],
+    tags: ["Next.js 14", "FastAPI", "Python", "React", "TypeScript", "Tailwind CSS", "AI/ML"],
+    github: "https://github.com/alexnikshith/HireSense",
+    demo: "https://talentscopeai.vercel.app/",
+    category: "AI/ML & Data",
+    featured: true,
+    metrics: "Next.js 14 + FastAPI • ATS Scoring & Semantic Matching"
+  },
+  {
+    id: "finsage",
+    title: "FinSage: AI-Powered Financial Intelligence",
+    shortTitle: "FinSage Financial Platform",
+    subtitle: "Full-Stack MERN Financial Advisory & Telemetry",
+    period: "2025 - 2026",
+    description: "A full-stack financial intelligence application built on the MERN stack with Redux Toolkit state management, interactive Recharts financial charts, and AI-driven portfolio insights.",
+    highlights: [
+      "Engineered full-stack financial intelligence platform using Node.js, Express, MongoDB, and React SPA",
+      "Integrated interactive financial telemetry and portfolio analytics using Recharts & Redux Toolkit",
+      "Incorporated AI financial advisory services, secure JWT authentication, and responsive modern dashboard"
+    ],
+    tags: ["React", "Node.js", "Express", "MongoDB", "Redux", "Recharts", "AI"],
+    github: "https://github.com/alexnikshith/Finsage",
+    demo: "https://finsage-gamma.vercel.app",
+    category: "AI/ML & Data",
+    featured: true,
+    metrics: "Full-Stack MERN • Interactive Recharts & AI Advisory"
+  },
   {
     id: "eduanalytics",
     title: "EduAnalytics: AI Student Marks Analyser",
@@ -165,6 +203,25 @@ export const projects = [
     metrics: "AES-256 Encryption • HMAC Tamper-Proofing"
   },
   {
+    id: "campus-fetch",
+    title: "CampusFetch: Student Resource Sharing",
+    shortTitle: "CampusFetch Platform",
+    subtitle: "Modern Campus Resource Exchange Platform",
+    period: "2025",
+    description: "A dynamic campus resource sharing web application built with TypeScript and Next.js, empowering students to search, list, and exchange study materials and campus essentials.",
+    highlights: [
+      "Built responsive student resource discovery platform in TypeScript & Next.js",
+      "Integrated fast client-side indexing and category-based resource filtering",
+      "Optimized for mobile campus accessibility with fluid responsive layouts"
+    ],
+    tags: ["TypeScript", "Next.js", "React", "Tailwind CSS"],
+    github: "https://github.com/alexnikshith/CampusFetch",
+    demo: "https://campus-fetch.vercel.app",
+    category: "Web & Systems",
+    featured: false,
+    metrics: "Next.js & TypeScript • Live Campus Deployment"
+  },
+  {
     id: "service-booking",
     title: "Book-Your-Service-Online Platform",
     shortTitle: "Service Booking Hub",
@@ -203,42 +260,23 @@ export const projects = [
     metrics: "Time Series Modeling • Interactive Streamlit"
   },
   {
-    id: "urban-bazaar",
-    title: "UrbanBazaar Mini E-Commerce Platform",
-    shortTitle: "UrbanBazaar E-Commerce",
-    subtitle: "Modern Reactive Shopping Experience",
+    id: "skylark",
+    title: "Skylark: Reactive Web Platform",
+    shortTitle: "Skylark Application",
+    subtitle: "Modern Responsive Digital Experience",
     period: "2025",
-    description: "A sleek, responsive digital storefront featuring dynamic product catalog filtering, client-side cart persistence, checkout flow simulations, and an Express.js product API.",
+    description: "A fast, responsive web application engineered with modern JavaScript and fluid UI components, featuring modular component architecture and high performance.",
     highlights: [
-      "Responsive UI with instant client-side cart and state synchronization",
-      "Clean REST API backend powering product catalogs and order summaries",
-      "Fluid micro-interactions and mobile-first design"
+      "Designed clean interactive frontend architecture with responsive components",
+      "Deployed on Vercel with automated build optimizations",
+      "Zero-dependency micro-animations for high performance"
     ],
-    tags: ["JavaScript", "Tailwind CSS", "Node.js", "Express", "REST API"],
-    github: "https://github.com/alexnikshith/UrbanBazaar_mini_e_commerce",
-    demo: "#",
+    tags: ["JavaScript", "React", "Tailwind CSS", "Vercel"],
+    github: "https://github.com/alexnikshith/Skylark",
+    demo: "https://skylark-sand-alpha.vercel.app",
     category: "Web & Systems",
     featured: false,
-    metrics: "Full Cart State • Mobile-First Responsive"
-  },
-  {
-    id: "smart-attendance",
-    title: "Smart Biometric & Barcode Attendance System",
-    shortTitle: "Smart Attendance System",
-    subtitle: "Automated Presence Verification",
-    period: "2025",
-    description: "An automated attendance tracking platform built with Python that streamlines check-ins via optical barcode decoding and biometric matching with automated institutional report generation.",
-    highlights: [
-      "Automated optical barcode / biometric presence verification system",
-      "Exportable institutional attendance summary sheets and automated emails",
-      "Persistent database synchronization preventing duplicate entries"
-    ],
-    tags: ["AI", "Python", "Automation", "OpenCV", "MySQL"],
-    github: "https://github.com/alexnikshith/smart_attendance_system",
-    demo: "#",
-    category: "AI/ML & Data",
-    featured: false,
-    metrics: "Automated Optical Recognition • Real-Time DB"
+    metrics: "Vercel Deployed • Modern Component Architecture"
   }
 ];
 

@@ -7,36 +7,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyber: {
-          950: '#040714',
-          900: '#080d22',
-          850: '#0c122e',
-          800: '#121a3e',
-          700: '#1b2554',
-          card: 'rgba(12, 18, 46, 0.65)',
+        theme: {
+          white: '#ffffff',
+          canvas: '#f8fafc',
+          card: '#ffffff',
+          dark: '#09090b',
+          obsidian: '#121214',
+          border: '#e4e4e7',
+          'border-dark': '#27272a',
         },
         primary: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6', // Violet
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
-          950: '#2e1065',
+          50: '#fefce8',
+          100: '#fef9c3',
+          200: '#fef08a',
+          300: '#fde047',
+          400: '#facc15', // Vibrant Cyber Yellow
+          500: '#eab308', // Primary Yellow
+          600: '#ca8a04',
+          700: '#a16207',
+          800: '#854d0e',
+          900: '#713f12',
+          950: '#422006',
         },
-        secondary: {
-          500: '#6366f1', // Indigo
-        },
-        neon: {
-          cyan: '#06b6d4',
-          violet: '#a855f7',
-          emerald: '#10b981',
-          rose: '#f43f5e',
-          blue: '#3b82f6',
+        brand: {
+          yellow: '#facc15',
+          gold: '#eab308',
+          black: '#09090b',
+          white: '#ffffff',
+          zinc: '#18181b',
         }
       },
       fontFamily: {
@@ -66,8 +64,9 @@ export default {
         }
       },
       boxShadow: {
-        'cyber-glow': '0 0 35px -5px rgba(139, 92, 246, 0.25)',
-        'cyan-glow': '0 0 30px -5px rgba(6, 182, 212, 0.3)',
+        'yellow-glow': '0 0 25px -4px rgba(250, 204, 21, 0.45)',
+        'black-glow': '0 10px 30px -5px rgba(0, 0, 0, 0.12)',
+        'luxe': '0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03)',
       }
     },
   },

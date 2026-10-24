@@ -21,7 +21,7 @@ const BackgroundParticles = () => {
 
     window.addEventListener('resize', handleResize);
 
-    const mouse = { x: -1000, y: -1000, radius: 130 };
+    const mouse = { x: -1000, y: -1000, radius: 140 };
 
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
@@ -36,24 +36,24 @@ const BackgroundParticles = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
 
-    const nodeCount = Math.min(Math.floor((width * height) / 22000), 55);
+    const nodeCount = Math.min(Math.floor((width * height) / 24000), 45);
     const nodes = [];
 
     const colors = [
-      'rgba(139, 92, 246, ', // violet
-      'rgba(99, 102, 241, ',  // indigo
-      'rgba(6, 182, 212, ',   // cyan
+      'rgba(24, 24, 27, ',    // obsidian black
+      'rgba(234, 179, 8, ',   // amber yellow
+      'rgba(250, 204, 21, ',  // cyber yellow
     ];
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
         radius: Math.random() * 2 + 1,
         colorBase: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.4 + 0.2,
+        alpha: Math.random() * 0.35 + 0.15,
       });
     }
 
@@ -66,13 +66,13 @@ const BackgroundParticles = () => {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 140;
+          const maxDist = 135;
 
           if (dist < maxDist) {
-            const lineAlpha = (1 - dist / maxDist) * 0.12;
+            const lineAlpha = (1 - dist / maxDist) * 0.07;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(139, 92, 246, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.strokeStyle = `rgba(24, 24, 27, ${lineAlpha})`;
+            ctx.lineWidth = 0.7;
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.stroke();
@@ -120,7 +120,7 @@ const BackgroundParticles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none -z-20 w-full h-full opacity-60"
+      className="fixed inset-0 pointer-events-none -z-20 w-full h-full opacity-70"
     />
   );
 };

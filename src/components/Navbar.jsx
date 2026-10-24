@@ -46,31 +46,29 @@ const Navbar = () => {
       <nav
         className={`max-w-7xl mx-auto rounded-2xl transition-all duration-300 px-5 sm:px-7 py-3 flex items-center justify-between ${
           isScrolled
-            ? 'bg-cyber-900/85 backdrop-blur-xl border border-primary-500/25 shadow-xl shadow-black/50'
-            : 'bg-cyber-900/50 backdrop-blur-md border border-white/5'
+            ? 'bg-white/90 backdrop-blur-xl border border-zinc-300/80 shadow-md shadow-zinc-900/5'
+            : 'bg-white/70 backdrop-blur-md border border-zinc-200/60 shadow-sm'
         }`}
       >
         {/* Brand / Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 via-primary-500 to-cyan-500 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
-            <div className="w-full h-full bg-cyber-950 rounded-[10px] flex items-center justify-center">
-              <span className="font-display font-extrabold text-sm tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-cyan-300">
-                NG
-              </span>
-            </div>
+          <div className="relative w-10 h-10 rounded-xl bg-zinc-950 p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-sm flex items-center justify-center">
+            <span className="font-display font-black text-sm tracking-wider text-yellow-400">
+              NG<span className="text-white">.</span>
+            </span>
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-white text-base tracking-tight group-hover:text-primary-300 transition-colors">
+            <span className="font-display font-bold text-zinc-950 text-base tracking-tight group-hover:text-yellow-600 transition-colors">
               {personalInfo.name}
             </span>
-            <span className="font-mono text-[10px] text-slate-400 -mt-1 hidden sm:block">
+            <span className="font-mono text-[10px] text-zinc-500 -mt-1 hidden sm:block">
               Software Engineer & AI
             </span>
           </div>
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-1 bg-cyber-950/70 p-1.5 rounded-xl border border-primary-500/15 backdrop-blur-md">
+        <div className="hidden lg:flex items-center gap-1 bg-zinc-100/80 p-1.5 rounded-xl border border-zinc-200">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -79,14 +77,11 @@ const Navbar = () => {
                 href={link.href}
                 className={`relative px-4 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 ${
                   isActive
-                    ? 'text-white bg-primary-600/30 border border-primary-500/35 shadow-inner'
-                    : 'text-slate-400 hover:text-slate-100 hover:bg-white/5'
+                    ? 'text-black bg-yellow-400 font-bold shadow-sm'
+                    : 'text-zinc-600 hover:text-black hover:bg-white'
                 }`}
               >
                 {link.name}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-gradient-to-r from-primary-400 to-cyan-400 rounded-full" />
-                )}
               </a>
             );
           })}
@@ -97,20 +92,20 @@ const Navbar = () => {
           <a
             href={personalInfo.resumeUrl}
             download
-            className="btn-cyber-outline gap-1.5"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-mono font-bold bg-yellow-400 hover:bg-yellow-300 text-black border border-yellow-500 shadow-sm transition-all active:scale-95 cursor-pointer"
             title="Download Nikshith's Resume"
           >
-            <Download size={14} className="text-primary-400" />
+            <Download size={14} className="text-black" />
             <span>Resume</span>
           </a>
 
-          <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
+          <div className="flex items-center gap-2 pl-2 border-l border-zinc-200">
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="w-9 h-9 rounded-lg bg-cyber-900/60 border border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary-500/40 hover:bg-primary-500/10 transition-all"
+              className="w-9 h-9 rounded-lg bg-white border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-black hover:border-black hover:bg-yellow-50 transition-all shadow-sm"
             >
               <Github size={17} />
             </a>
@@ -119,7 +114,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="w-9 h-9 rounded-lg bg-cyber-900/60 border border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-white hover:border-primary-500/40 hover:bg-primary-500/10 transition-all"
+              className="w-9 h-9 rounded-lg bg-white border border-zinc-200 flex items-center justify-center text-zinc-700 hover:text-black hover:border-black hover:bg-yellow-50 transition-all shadow-sm"
             >
               <Linkedin size={17} />
             </a>
@@ -128,7 +123,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Trigger */}
         <button
-          className="lg:hidden p-2 text-slate-300 hover:text-white rounded-lg bg-cyber-900/60 border border-slate-700/60"
+          className="lg:hidden p-2 text-zinc-700 hover:text-black rounded-lg bg-white border border-zinc-200"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Navigation Menu"
         >
@@ -138,11 +133,11 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden max-w-7xl mx-auto mt-2 rounded-2xl bg-cyber-900/95 backdrop-blur-2xl border border-primary-500/20 p-5 shadow-2xl flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-            <span className="text-xs font-mono text-primary-400">NAVIGATION</span>
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+        <div className="lg:hidden max-w-7xl mx-auto mt-2 rounded-2xl bg-white/95 backdrop-blur-2xl border border-zinc-200 p-5 shadow-2xl flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
+          <div className="flex items-center justify-between pb-3 border-b border-zinc-200">
+            <span className="text-xs font-mono font-bold text-zinc-900">NAVIGATION</span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] bg-yellow-400 text-black font-mono font-bold border border-yellow-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-black animate-ping" />
               Available for Hire
             </span>
           </div>
@@ -152,7 +147,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-primary-500/10 border border-transparent hover:border-primary-500/20 transition-all"
+                className="px-3 py-2.5 rounded-lg text-sm font-medium text-zinc-700 hover:text-black hover:bg-yellow-100/60 border border-transparent transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
@@ -160,11 +155,11 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="pt-3 border-t border-slate-800 flex items-center justify-between gap-3">
+          <div className="pt-3 border-t border-zinc-200 flex items-center justify-between gap-3">
             <a
               href={personalInfo.resumeUrl}
               download
-              className="btn-primary py-2.5 px-4 text-xs flex-1 text-center"
+              className="btn-yellow py-2.5 px-4 text-xs flex-1 text-center"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <Download size={14} /> Download Resume
@@ -174,7 +169,7 @@ const Navbar = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl border border-slate-700 bg-cyber-950 text-slate-300"
+                className="p-2.5 rounded-xl border border-zinc-200 bg-white text-zinc-800"
               >
                 <Github size={18} />
               </a>
@@ -182,7 +177,7 @@ const Navbar = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl border border-slate-700 bg-cyber-950 text-slate-300"
+                className="p-2.5 rounded-xl border border-zinc-200 bg-white text-zinc-800"
               >
                 <Linkedin size={18} />
               </a>

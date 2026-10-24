@@ -16,8 +16,8 @@ const CursorGlow = () => {
 
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      springX.set(e.clientX - 175);
-      springY.set(e.clientY - 175);
+      springX.set(e.clientX - 160);
+      springY.set(e.clientY - 160);
       if (!isVisible) setIsVisible(true);
     };
 
@@ -40,16 +40,16 @@ const CursorGlow = () => {
         className="absolute inset-0 transition-opacity duration-300 pointer-events-none"
         style={{
           opacity: isVisible ? 1 : 0,
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 92, 246, 0.05), transparent 75%)`,
+          background: `radial-gradient(550px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(250, 204, 21, 0.08), transparent 70%)`,
         }}
       />
       <motion.div
-        className="w-[350px] h-[350px] rounded-full blur-[110px] pointer-events-none"
+        className="w-[320px] h-[320px] rounded-full blur-[100px] pointer-events-none"
         style={{
           x: springX,
           y: springY,
           opacity: isVisible ? 0.35 : 0,
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(6, 182, 212, 0.25) 50%, transparent 80%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.3) 0%, rgba(234, 179, 8, 0.15) 50%, transparent 80%)',
         }}
       />
     </div>
