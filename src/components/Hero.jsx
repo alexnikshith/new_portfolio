@@ -85,7 +85,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Column: High-Contrast Obsidian & Yellow Terminal Card */}
+        {/* Right Column: High-Contrast Obsidian & Yellow Portrait Showcase Card */}
         <motion.div
           className="lg:col-span-5 relative"
           initial={{ opacity: 0, scale: 0.92 }}
@@ -96,92 +96,92 @@ const Hero = () => {
             {/* Outer Glow Halo */}
             <div className="absolute -inset-1.5 bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 rounded-3xl blur-xl opacity-40 animate-pulse-slow pointer-events-none" />
 
-            <div className="relative rounded-2xl bg-zinc-950 text-white p-6 border-2 border-zinc-800 shadow-2xl">
+            <div className="relative rounded-2xl bg-zinc-950 text-white p-5 sm:p-6 border-2 border-zinc-800 shadow-2xl">
               {/* Terminal Window Header */}
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-zinc-800">
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-zinc-800">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-rose-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-400" />
                   <div className="w-3 h-3 rounded-full bg-emerald-500" />
                   <span className="ml-2 font-mono text-[11px] text-zinc-400 flex items-center gap-1.5">
                     <Terminal size={12} className="text-yellow-400" />
-                    nikshith@terminal:~$
+                    nikshith.dev
                   </span>
                 </div>
-                <span className="font-mono text-[10px] text-black font-bold px-2 py-0.5 rounded bg-yellow-400">
-                  v3.0.0-gold
-                </span>
-              </div>
-
-              {/* Profile Card Header Inside Terminal */}
-              <div className="flex items-center gap-4 mb-5 p-3 rounded-xl bg-zinc-900 border border-zinc-800">
-                <div className="relative w-16 h-16 rounded-xl overflow-hidden border-2 border-yellow-400 p-0.5 shrink-0 shadow-md shadow-yellow-500/20">
-                  <img
-                    src={personalInfo.profilePic}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover rounded-[10px]"
-                    loading="eager"
-                  />
-                  <div className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-yellow-400 border-2 border-zinc-950" />
-                </div>
-                <div className="min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-bold text-white text-base truncate">
-                      {personalInfo.name}
-                    </h3>
-                    <CheckCircle2 size={15} className="text-yellow-400 shrink-0" />
-                  </div>
-                  <p className="text-xs text-yellow-400 font-mono font-medium">B.Tech Computer Science</p>
-                  <p className="text-[11px] text-zinc-400 flex items-center gap-1 mt-0.5">
-                    <MapPin size={11} className="text-rose-400" />
-                    {personalInfo.location}
-                  </p>
-                </div>
-              </div>
-
-              {/* Live JSON Telemetry Block */}
-              <div className="p-4 rounded-xl bg-black border border-zinc-800 font-mono text-[11px] leading-relaxed text-zinc-300 mb-4 overflow-x-auto">
-                <div className="text-zinc-500">// System Profile & Flagship Releases</div>
-                <div>
-                  <span className="text-yellow-400 font-bold">const</span>{' '}
-                  <span className="text-white">engineerProfile</span> = {'{'}
-                </div>
-                <div className="pl-4">
-                  <span className="text-zinc-400">role:</span>{' '}
-                  <span className="text-yellow-300">"SDE & AI/ML Engineer"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-zinc-400">topReleases:</span> [
-                  <span className="text-yellow-300">"TalentScope AI"</span>,{' '}
-                  <span className="text-yellow-300">"FinSage"</span>,{' '}
-                  <span className="text-yellow-300">"EduAnalytics"</span>
-                  ],
-                </div>
-                <div className="pl-4">
-                  <span className="text-zinc-400">primaryStack:</span> [
-                  <span className="text-emerald-300">"Next.js"</span>,{' '}
-                  <span className="text-emerald-300">"FastAPI"</span>,{' '}
-                  <span className="text-emerald-300">"Python"</span>,{' '}
-                  <span className="text-emerald-300">"Go"</span>
-                  ],
-                </div>
-                <div className="pl-4">
-                  <span className="text-zinc-400">internship:</span>{' '}
-                  <span className="text-cyan-300">"Bluestock Fintech (SDE)"</span>
-                </div>
-                <div>{'}'}</div>
-              </div>
-
-              {/* Floating Highlight Capsule */}
-              <div className="flex items-center justify-between p-3 rounded-xl bg-zinc-900 border border-yellow-500/30">
                 <div className="flex items-center gap-2">
-                  <Server size={15} className="text-yellow-400" />
-                  <span className="text-xs font-mono text-zinc-300">Latest Live App</span>
+                  <span className="font-mono text-[10px] text-black font-bold px-2.5 py-0.5 rounded bg-yellow-400 shadow-sm">
+                    ● Available for SDE / AI Roles
+                  </span>
                 </div>
-                <span className="text-[11px] font-mono text-yellow-400 font-bold">
+              </div>
+
+              {/* Big High-Res Portrait Frame */}
+              <div className="relative w-full aspect-[4/4.3] rounded-2xl overflow-hidden border-2 border-yellow-400 shadow-md shadow-yellow-500/20 mb-4 group bg-zinc-900">
+                <img
+                  src={personalInfo.profilePic}
+                  alt={personalInfo.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="eager"
+                />
+
+                {/* Ambient vignette gradient for high text contrast */}
+                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-zinc-950 via-zinc-950/75 to-transparent pointer-events-none" />
+
+                {/* Overlaid Bio Badge on Bottom of Photo */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2 pointer-events-none">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <h3 className="font-extrabold text-white text-lg tracking-tight truncate drop-shadow-md">
+                        {personalInfo.name}
+                      </h3>
+                      <CheckCircle2 size={16} className="text-yellow-400 shrink-0 fill-zinc-950" />
+                    </div>
+                    <p className="text-xs text-yellow-300 font-mono font-medium drop-shadow-sm">
+                      B.Tech CSE • Amrita Coimbatore
+                    </p>
+                    <p className="text-[11px] text-zinc-300 flex items-center gap-1 mt-0.5 drop-shadow">
+                      <MapPin size={11} className="text-yellow-400 shrink-0" />
+                      {personalInfo.location}
+                    </p>
+                  </div>
+                  <div className="shrink-0 px-2.5 py-1 rounded-full bg-black/85 backdrop-blur-md border border-yellow-400/50 text-[10px] font-mono text-yellow-400 font-bold flex items-center gap-1.5 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+                    SDE & AI
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Profile Indicators */}
+              <div className="grid grid-cols-3 gap-2 mb-3">
+                <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
+                  <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wide">Focus</div>
+                  <div className="text-xs font-bold text-white mt-0.5">SDE & AI/ML</div>
+                </div>
+                <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
+                  <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wide">Internship</div>
+                  <div className="text-xs font-bold text-yellow-400 mt-0.5">Bluestock</div>
+                </div>
+                <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
+                  <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wide">Batch</div>
+                  <div className="text-xs font-bold text-white mt-0.5">2023 – 2027</div>
+                </div>
+              </div>
+
+              {/* Floating Highlight Capsule (Direct link to live flagship app) */}
+              <a
+                href="https://talentscopeai.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 rounded-xl bg-zinc-900 border border-yellow-400/40 hover:border-yellow-400 hover:bg-zinc-850 transition-all group cursor-pointer shadow-sm"
+              >
+                <div className="flex items-center gap-2">
+                  <Server size={15} className="text-yellow-400 group-hover:scale-110 transition-transform" />
+                  <span className="text-xs font-mono text-zinc-300">Featured Live App</span>
+                </div>
+                <span className="text-xs font-mono text-yellow-400 font-bold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                   TalentScope AI Live 🚀
                 </span>
-              </div>
+              </a>
             </div>
           </div>
         </motion.div>

@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 
 // Using actual GitHub profile picture
-const profilePic = "https://github.com/alexnikshith.png?size=400";
+const profilePic = "https://github.com/alexnikshith.png?size=800";
 
 export const personalInfo = {
   name: "Nikshith Gurram",
@@ -31,7 +31,7 @@ export const personalInfo = {
   location: "Hyderabad, India",
   github: "https://github.com/alexnikshith",
   linkedin: "https://www.linkedin.com/in/nikshith-gurram-04027b1b7/",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/resume_portfolio.pdf",
   profilePic: profilePic,
   status: "Open to Software Engineering & AI Roles",
   stats: [
@@ -329,12 +329,12 @@ export const education = [
 
 export const certifications = [
   {
-    title: "Adobe Hackathon Recognition",
-    issuer: "Adobe",
-    date: "August 2025",
-    description: "Recognized for innovative problem-solving and rapid software prototyping during Adobe Hackathon.",
-    icon: Award,
-    link: "/certificates/adobe_hackathon.pdf"
+    title: "IoT & Embedded Systems",
+    issuer: "University of California, Irvine (Coursera)",
+    date: "October 2026",
+    description: "Authorized by UC Irvine. Covers embedded microcontroller architectures, sensor and actuator interfacing, real-time operating concepts, and networked IoT device communication.",
+    icon: Cpu,
+    link: "/certificates/GO83_23620_OnlineCourse.pdf"
   },
   {
     title: "Machine Learning Training",
@@ -351,14 +351,6 @@ export const certifications = [
     description: "Specialized in data cleaning, exploratory data analysis, time-series analysis, statistical modeling, and dashboard creation.",
     icon: BarChart3,
     link: "/certificates/DA_Coursera.pdf"
-  },
-  {
-    title: "National Service Scheme (NSS) Leadership Camp",
-    issuer: "Amrita Vishwa Vidyapeetham / Ministry of Youth Affairs",
-    date: "2024",
-    description: "Certification of leadership and coordination for community welfare camps, blood donation drives, and public education campaigns.",
-    icon: Shield,
-    link: "/certificates/NSS_camp.pdf"
   }
 ];
 
@@ -368,7 +360,6 @@ export const extracurriculars = [
     organization: "Amrita Vishwa Vidyapeetham",
     description: "Leading community service initiatives, organizing blood donation camps, rural literacy drives, and environmental sustainability campaigns.",
     icon: Shield,
-    certificate: "/certificates/NSS_camp.pdf",
     badge: "Leadership"
   },
   {
