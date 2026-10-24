@@ -9,28 +9,67 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 30);
 
-      const sections = ['about', 'skills', 'projects', 'experience', 'education', 'contact'];
-      const scrollPos = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
-            break;
+          // If user scrolled near the bottom of page, highlight contact
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+            setActiveSection('contact');
+            ticking = false;
+            return;
           }
-        }
+
+          const sections = ['about', 'skills', 'projects', 'experience', 'education', 'contact'];
+          let currentSection = '';
+
+          for (const sectionId of sections) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 220 && rect.bottom >= 140) {
+                currentSection = sectionId;
+                break;
+              }
+            }
+          }
+
+          if (currentSection) {
+            setActiveSection(currentSection);
+          } else if (window.scrollY < 250) {
+            setActiveSection('');
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    setActiveSection(targetId);
+    setIsMobileMenuOpen(false);
+
+    const el = document.getElementById(targetId);
+    if (el) {
+      const navOffset = 95;
+      const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elementTop - navOffset),
+        behavior: 'smooth'
+      });
+      window.history.pushState(null, '', `#${targetId}`);
+    }
+  };
 
   const navLinks = [
     { name: 'About', href: '#about', id: 'about' },
@@ -51,7 +90,11 @@ const Navbar = () => {
         }`}
       >
         {/* Brand / Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, 'hero')}
+          className="flex items-center gap-3 group cursor-pointer"
+        >
           <div className="relative w-10 h-10 rounded-xl bg-zinc-950 p-0.5 transition-transform duration-300 group-hover:scale-105 shadow-sm flex items-center justify-center">
             <span className="font-display font-black text-sm tracking-wider text-yellow-400">
               NG<span className="text-white">.</span>
@@ -75,7 +118,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`relative px-4 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 ${
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`relative px-4 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
                   isActive
                     ? 'text-black bg-yellow-400 font-bold shadow-sm'
                     : 'text-zinc-600 hover:text-black hover:bg-white'
@@ -133,7 +177,7 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden max-w-7xl mx-auto mt-2 rounded-2xl bg-white/95 backdrop-blur-2xl border border-zinc-200 p-5 shadow-2xl flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
+        <div className="lg:hidden max-w-[1560px] mx-auto mt-2 rounded-2xl bg-white/95 backdrop-blur-2xl border border-zinc-200 p-5 shadow-2xl flex flex-col gap-3 animate-in fade-in slide-in-from-top-3 duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-zinc-200">
             <span className="text-xs font-mono font-bold text-zinc-900">NAVIGATION</span>
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] bg-yellow-400 text-black font-mono font-bold border border-yellow-500">
@@ -147,8 +191,12 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-2.5 rounded-lg text-sm font-medium text-zinc-700 hover:text-black hover:bg-yellow-100/60 border border-transparent transition-all"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className={`px-3 py-2.5 rounded-lg text-sm font-medium border transition-all cursor-pointer ${
+                  activeSection === link.id
+                    ? 'bg-yellow-400 text-black font-bold border-yellow-500'
+                    : 'text-zinc-700 hover:text-black hover:bg-yellow-100/60 border-transparent'
+                }`}
+                onClick={(e) => handleNavClick(e, link.id)}
               >
                 {link.name}
               </a>

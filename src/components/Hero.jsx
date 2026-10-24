@@ -5,7 +5,7 @@ import { personalInfo } from '../data';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-mesh-light">
+    <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-mesh-light">
       {/* Decorative architectural grid */}
       <div className="absolute inset-0 bg-theme-grid opacity-60 pointer-events-none -z-10" />
 

@@ -17,25 +17,40 @@ const SideRails = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate overall scroll percentage
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScroll > 0) {
-        setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / totalScroll) * 100)));
-      }
+    let ticking = false;
 
-      // Check section in view
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
-      for (const section of sections) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section.id);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Calculate overall scroll percentage
+          const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (totalScroll > 0) {
+            setScrollProgress(Math.min(100, Math.max(0, (window.scrollY / totalScroll) * 100)));
           }
-        }
+
+          // If near bottom, highlight contact
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+            setActiveSection('contact');
+            ticking = false;
+            return;
+          }
+
+          let current = 'hero';
+          for (const section of sections) {
+            const el = document.getElementById(section.id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              if (rect.top <= 240 && rect.bottom >= 140) {
+                current = section.id;
+                break;
+              }
+            }
+          }
+
+          setActiveSection(current);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -49,9 +64,16 @@ const SideRails = () => {
   };
 
   const scrollToSection = (id) => {
+    setActiveSection(id);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = 95;
+      const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: Math.max(0, elementTop - navOffset),
+        behavior: 'smooth'
+      });
+      window.history.pushState(null, '', `#${id}`);
     }
   };
 
