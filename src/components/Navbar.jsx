@@ -7,40 +7,66 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
+  const isClickScrollingRef = React.useRef(false);
+  const clickTimeoutRef = React.useRef(null);
 
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
+      if (isClickScrollingRef.current) return;
       if (!ticking) {
         window.requestAnimationFrame(() => {
           setIsScrolled(window.scrollY > 30);
 
-          // If user scrolled near the bottom of page, highlight contact
-          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+          // 1. If user scrolled near the bottom of page, highlight contact
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 70) {
             setActiveSection('contact');
             ticking = false;
             return;
           }
 
+          // 2. If in hero area, clear active section
+          if (window.scrollY < 260) {
+            setActiveSection('');
+            ticking = false;
+            return;
+          }
+
           const sections = ['about', 'skills', 'projects', 'experience', 'education', 'contact'];
+          const focusY = Math.min(290, window.innerHeight * 0.38);
           let currentSection = '';
 
+          // 3. Focal point intersection: exactly one section contains the user's primary reading line
           for (const sectionId of sections) {
             const el = document.getElementById(sectionId);
             if (el) {
               const rect = el.getBoundingClientRect();
-              if (rect.top <= 220 && rect.bottom >= 140) {
+              if (rect.top <= focusY && rect.bottom > focusY) {
                 currentSection = sectionId;
                 break;
               }
             }
           }
 
+          // 4. Fallback: maximum visible height in viewport
+          if (!currentSection) {
+            let maxVisibleH = 0;
+            for (const sectionId of sections) {
+              const el = document.getElementById(sectionId);
+              if (el) {
+                const rect = el.getBoundingClientRect();
+                const visibleH = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
+                if (visibleH > maxVisibleH) {
+                  maxVisibleH = visibleH;
+                  currentSection = sectionId;
+                }
+              }
+            }
+          }
+
           if (currentSection) {
             setActiveSection(currentSection);
-          } else if (window.scrollY < 250) {
-            setActiveSection('');
           }
 
           ticking = false;
@@ -51,17 +77,27 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
   }, []);
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-    setActiveSection(targetId);
+    setActiveSection(targetId === 'hero' ? '' : targetId);
     setIsMobileMenuOpen(false);
+
+    // Lock scroll spy briefly while smooth scroll glides to destination
+    isClickScrollingRef.current = true;
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickScrollingRef.current = false;
+    }, 850);
 
     const el = document.getElementById(targetId);
     if (el) {
-      const navOffset = 95;
+      const navOffset = 110;
       const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: Math.max(0, elementTop - navOffset),

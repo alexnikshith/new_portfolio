@@ -15,11 +15,14 @@ const sections = [
 const SideRails = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [scrollProgress, setScrollProgress] = useState(0);
+  const isClickScrollingRef = React.useRef(false);
+  const clickTimeoutRef = React.useRef(null);
 
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
+      if (isClickScrollingRef.current) return;
       if (!ticking) {
         window.requestAnimationFrame(() => {
           // Calculate overall scroll percentage
@@ -29,20 +32,46 @@ const SideRails = () => {
           }
 
           // If near bottom, highlight contact
-          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 70) {
             setActiveSection('contact');
             ticking = false;
             return;
           }
 
+          // If in hero zone
+          if (window.scrollY < 260) {
+            setActiveSection('hero');
+            ticking = false;
+            return;
+          }
+
+          const focusY = Math.min(290, window.innerHeight * 0.38);
           let current = 'hero';
+
+          // Focal point intersection
           for (const section of sections) {
             const el = document.getElementById(section.id);
             if (el) {
               const rect = el.getBoundingClientRect();
-              if (rect.top <= 240 && rect.bottom >= 140) {
+              if (rect.top <= focusY && rect.bottom > focusY) {
                 current = section.id;
                 break;
+              }
+            }
+          }
+
+          // Fallback: maximum visible height
+          if (current === 'hero') {
+            let maxVisibleH = 0;
+            for (const section of sections) {
+              const el = document.getElementById(section.id);
+              if (el) {
+                const rect = el.getBoundingClientRect();
+                const visibleH = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
+                if (visibleH > maxVisibleH) {
+                  maxVisibleH = visibleH;
+                  current = section.id;
+                }
               }
             }
           }
@@ -56,7 +85,10 @@ const SideRails = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -65,9 +97,15 @@ const SideRails = () => {
 
   const scrollToSection = (id) => {
     setActiveSection(id);
+    isClickScrollingRef.current = true;
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickScrollingRef.current = false;
+    }, 850);
+
     const el = document.getElementById(id);
     if (el) {
-      const navOffset = 95;
+      const navOffset = 110;
       const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: Math.max(0, elementTop - navOffset),
