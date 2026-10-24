@@ -33,11 +33,10 @@ const Skills = () => {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedCategory('All')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
-                selectedCategory === 'All'
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${selectedCategory === 'All'
                   ? 'bg-yellow-400 text-black shadow-sm border border-yellow-500'
                   : 'bg-white text-zinc-700 hover:text-black hover:bg-yellow-50 border border-zinc-200'
-              }`}
+                }`}
             >
               All Categories ({skills.length})
             </button>
@@ -45,11 +44,10 @@ const Skills = () => {
               <button
                 key={s.category}
                 onClick={() => setSelectedCategory(s.category)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
-                  selectedCategory === s.category
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${selectedCategory === s.category
                     ? 'bg-yellow-400 text-black shadow-sm border border-yellow-500'
                     : 'bg-white text-zinc-700 hover:text-black hover:bg-yellow-50 border border-zinc-200'
-                }`}
+                  }`}
               >
                 {s.category.split(' ')[0]}
               </button>

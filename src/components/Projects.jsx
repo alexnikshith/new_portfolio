@@ -38,7 +38,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section-padding relative">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>

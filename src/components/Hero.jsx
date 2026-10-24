@@ -40,7 +40,7 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle / Bio */}
-          <p className="text-base sm:text-lg text-zinc-600 mb-8 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-600 mb-8 max-w-3xl leading-relaxed">
             I'm <span className="text-zinc-950 font-bold">{personalInfo.name}</span>, a Computer Science Engineer at <span className="text-zinc-900 font-semibold underline decoration-yellow-400 decoration-2">Amrita Vishwa Vidyapeetham</span> specializing in high-performance full-stack architectures (<span className="text-zinc-950 font-semibold">Next.js 14, React, FastAPI, Go, Docker</span>) and applied machine learning systems.
           </p>
 
@@ -92,7 +92,7 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="relative mx-auto max-w-md w-full">
+          <div className="relative mx-auto max-w-lg w-full">
             {/* Outer Glow Halo */}
             <div className="absolute -inset-1.5 bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 rounded-3xl blur-xl opacity-40 animate-pulse-slow pointer-events-none" />
 

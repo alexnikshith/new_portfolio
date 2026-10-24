@@ -6,7 +6,7 @@ import { experience } from '../data';
 const Experience = () => {
   return (
     <section id="experience" className="section-padding relative">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Header */}
         <div className="mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400 text-black font-mono text-xs uppercase tracking-widest font-bold mb-3 border border-yellow-500 shadow-sm">
@@ -22,7 +22,7 @@ const Experience = () => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="space-y-8 max-w-4xl mx-auto">
+        <div className="space-y-8 max-w-5xl mx-auto">
           {experience.map((exp, index) => (
             <motion.div
               key={exp.role + exp.company}
