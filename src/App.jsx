@@ -1,6 +1,5 @@
 import React from 'react';
 import BackgroundParticles from './components/BackgroundParticles';
-import CursorGlow from './components/CursorGlow';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TechMarquee from './components/TechMarquee';
@@ -19,10 +18,7 @@ function App() {
       {/* Dynamic Canvas Particles */}
       <BackgroundParticles />
 
-      {/* Spring-Damped Yellow Spotlight */}
-      <CursorGlow />
-
-      {/* Interactive Side Rails: Left Telemetry & Right Section HUD */}
+            {/* Interactive Side Rails: Left Telemetry & Right Section HUD */}
       <SideRails />
 
       {/* Floating White Glass Navbar */}
