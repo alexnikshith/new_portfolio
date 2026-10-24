@@ -115,44 +115,37 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Big High-Res Portrait Frame */}
-              <div className="relative w-full aspect-[4/4.3] rounded-2xl overflow-hidden border-2 border-yellow-400 shadow-md shadow-yellow-500/20 mb-4 group bg-zinc-900">
+              {/* High-Res Portrait Photo (Clean without yellow border or text blocking face/clothes) */}
+              <div className="relative mx-auto w-52 h-52 sm:w-60 sm:h-60 rounded-full overflow-hidden border border-zinc-800 shadow-2xl group bg-zinc-900">
                 <img
                   src={personalInfo.profilePic}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   loading="eager"
                 />
+              </div>
 
-                {/* Ambient vignette gradient for high text contrast */}
-                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-zinc-950 via-zinc-950/75 to-transparent pointer-events-none" />
-
-                {/* Overlaid Bio Badge on Bottom of Photo */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2 pointer-events-none">
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1.5">
-                      <h3 className="font-extrabold text-white text-lg tracking-tight truncate drop-shadow-md">
-                        {personalInfo.name}
-                      </h3>
-                      <CheckCircle2 size={16} className="text-yellow-400 shrink-0 fill-zinc-950" />
-                    </div>
-                    <p className="text-xs text-yellow-300 font-mono font-medium drop-shadow-sm">
-                      B.Tech CSE • Amrita Coimbatore
-                    </p>
-                    <p className="text-[11px] text-zinc-300 flex items-center gap-1 mt-0.5 drop-shadow">
-                      <MapPin size={11} className="text-yellow-400 shrink-0" />
-                      {personalInfo.location}
-                    </p>
-                  </div>
-                  <div className="shrink-0 px-2.5 py-1 rounded-full bg-black/85 backdrop-blur-md border border-yellow-400/50 text-[10px] font-mono text-yellow-400 font-bold flex items-center gap-1.5 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
-                    SDE & AI
-                  </div>
+              {/* Profile Details Cleanly Below the Photo */}
+              <div className="text-center pt-4 pb-1">
+                <div className="inline-flex items-center justify-center gap-1.5">
+                  <h3 className="font-extrabold text-white text-xl sm:text-2xl tracking-tight">
+                    {personalInfo.name}
+                  </h3>
+                  <CheckCircle2 size={18} className="text-yellow-400 shrink-0 fill-zinc-950" />
                 </div>
+                <p className="text-xs sm:text-sm font-semibold text-yellow-400 font-mono mt-0.5">
+                  B.Tech Computer Science & Engineering
+                </p>
+                <p className="text-xs text-zinc-400 mt-1 flex items-center justify-center gap-1.5 font-medium">
+                  <span>Amrita Vishwa Vidyapeetham</span>
+                  <span className="text-zinc-600">•</span>
+                  <MapPin size={12} className="text-rose-400 inline shrink-0" />
+                  <span>{personalInfo.location}</span>
+                </p>
               </div>
 
               {/* Quick Profile Indicators */}
-              <div className="grid grid-cols-3 gap-2 mb-3">
+              <div className="grid grid-cols-3 gap-2 my-3">
                 <div className="p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-center">
                   <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wide">Focus</div>
                   <div className="text-xs font-bold text-white mt-0.5">SDE & AI/ML</div>
@@ -172,7 +165,7 @@ const Hero = () => {
                 href="https://talentscopeai.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 rounded-xl bg-zinc-900 border border-yellow-400/40 hover:border-yellow-400 hover:bg-zinc-850 transition-all group cursor-pointer shadow-sm"
+                className="flex items-center justify-between p-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-yellow-400 hover:bg-zinc-850 transition-all group cursor-pointer shadow-sm"
               >
                 <div className="flex items-center gap-2">
                   <Server size={15} className="text-yellow-400 group-hover:scale-110 transition-transform" />
