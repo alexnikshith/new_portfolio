@@ -1,65 +1,117 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle2, Sparkles, ExternalLink, Award } from 'lucide-react';
 import { experience } from '../data';
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-padding bg-slate-950/50">
-      <div className="mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Journey</h2>
-        <p className="text-slate-400 max-w-2xl leading-relaxed">
-          My experience in the industry is just beginning, focused on learning and delivering quality software solutions.
-        </p>
-      </div>
+    <section id="experience" className="section-padding relative">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-3">
+            <Sparkles size={12} />
+            Industry Experience
+          </div>
+          <h2 className="section-title mb-4">
+            Professional track & <span className="cyber-gradient-text">hands-on impact.</span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl text-base sm:text-lg leading-relaxed">
+            Shipping reliable software tools, optimizing algorithmic data pipelines, and engineering high-accuracy machine learning models.
+          </p>
+        </div>
 
-      <div className="space-y-8">
-        {experience.map((exp, index) => (
-          <motion.div
-            key={exp.role + exp.company}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="relative pl-8 md:pl-0"
-          >
-            {/* Timeline Line */}
-            <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-slate-800"></div>
-            
-            <div className={`md:flex items-center gap-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-              {/* Dot */}
-              <div className="absolute left-0 md:left-[50%] md:-translate-x-[50%] w-4 h-4 rounded-full bg-primary-500 border-4 border-slate-900 z-10"></div>
-              
-              <div className="md:w-1/2">
-                <div className="glass-card p-8 hover:border-primary-500/30">
-                  <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                      <p className="text-primary-500 font-medium">{exp.company}</p>
-                    </div>
-                    <div className="px-3 py-1 rounded-full bg-slate-800 text-slate-400 text-xs font-medium flex items-center gap-2">
-                      <Calendar size={14} /> {exp.period}
-                    </div>
+        {/* Experience Timeline */}
+        <div className="space-y-8 max-w-4xl mx-auto">
+          {experience.map((exp, index) => (
+            <motion.div
+              key={exp.role + exp.company}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="cyber-card p-7 sm:p-9 border-primary-500/25 relative overflow-hidden group hover:border-primary-500/50"
+            >
+              {/* Top Meta Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary-600/20 to-emerald-500/20 border border-primary-500/30 flex items-center justify-center text-primary-300 group-hover:scale-105 transition-transform shrink-0 shadow-lg shadow-black/40">
+                    <Briefcase size={22} />
                   </div>
-                  <p className="text-slate-400 leading-relaxed mb-4">
-                    {exp.description}
-                  </p>
-                  {exp.certificate && (
-                    <a 
-                      href={exp.certificate} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary-500 hover:text-primary-400 font-medium inline-flex items-center gap-1 transition-colors"
-                    >
-                      View Certificate →
-                    </a>
+                  <div>
+                    <span className="text-[11px] font-mono font-semibold text-emerald-400 uppercase tracking-widest block mb-1">
+                      {exp.type || "Internship"}
+                    </span>
+                    <h3 className="text-2xl font-bold text-white group-hover:text-primary-300 transition-colors">
+                      {exp.role}
+                    </h3>
+                    <p className="text-primary-400 font-medium text-base">
+                      {exp.company}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex sm:flex-col items-start sm:items-end gap-2 text-xs font-mono text-slate-400">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyber-950/80 border border-slate-800">
+                    <Calendar size={13} className="text-primary-400" />
+                    <span>{exp.period}</span>
+                  </div>
+                  {exp.location && (
+                    <div className="flex items-center gap-1 text-[11px] text-slate-500">
+                      <MapPin size={11} className="text-rose-400" />
+                      <span>{exp.location}</span>
+                    </div>
                   )}
                 </div>
               </div>
-              <div className="hidden md:block md:w-1/2"></div>
-            </div>
-          </motion.div>
-        ))}
+
+              {/* Achievements Bullet Points */}
+              <div className="space-y-3 mb-6">
+                <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">
+                  // KEY RESPONSIBILITIES & ACHIEVEMENTS
+                </h4>
+                {exp.achievements.map((achievement, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle2 size={16} className="text-cyan-400 shrink-0 mt-0.5" />
+                    <p className="text-sm text-slate-300 leading-relaxed">
+                      {achievement}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Technologies Utilized */}
+              {exp.technologies && (
+                <div className="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-mono text-slate-500 mr-1">Stack:</span>
+                    {exp.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-md bg-cyber-950 border border-slate-800 text-xs font-mono text-slate-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {exp.certificate && (
+                    <a
+                      href={exp.certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 px-3.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                    >
+                      <Award size={14} />
+                      <span>View Verified Certificate</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

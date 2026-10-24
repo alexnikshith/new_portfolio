@@ -12,7 +12,7 @@
   .glass-card {
     @apply bg-slate-900/50 backdrop-blur-md border border-slate-800 rounded-2xl transition-all duration-300;
   }
-  
+
   .section-padding {
     @apply py-20 px-6 max-w-7xl mx-auto;
   }
@@ -37,17 +37,20 @@
 
 ::-webkit-scrollbar-track {
   @apply bg-slate-950;
-  background: #020617; /* midnight dark */
+  background: #020617;
+  /* midnight dark */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4f46e5; /* primary-600 */
+  background: #4f46e5;
+  /* primary-600 */
   border-radius: 10px;
   border: 3px solid #020617;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6366f1; /* primary-500 */
+  background: #6366f1;
+  /* primary-500 */
 }
 
 /* For Firefox */
@@ -58,7 +61,7 @@
 
 /* Background Gradients */
 .bg-mesh {
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
 }
