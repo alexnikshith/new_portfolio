@@ -140,7 +140,7 @@ export const projects = [
     ],
     tags: ["React", "FastAPI", "Python", "Pandas", "Recharts", "AI/ML"],
     github: "https://github.com/alexnikshith/student-exam-performance-analytics",
-    demo: "https://student-exam-performance-analytics.vercel.app",
+    demo: "https://eduanalysis.vercel.app",
     category: "AI/ML & Data",
     featured: true,
     metrics: "1,000+ Records Analyzed • 100+ Reports Generated"
